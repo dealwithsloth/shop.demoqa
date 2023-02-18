@@ -16,6 +16,7 @@
 // Import commands.js using ES2015 syntax:
 import "./commands"
 import "cypress-xpath"
+import 'cypress-plugin-xhr-toggle'
 
 Cypress.on("uncaught:exception", (err, runnable) => {
     return false
