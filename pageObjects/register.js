@@ -1,8 +1,4 @@
 class Register {
-    registerPage() {
-        cy.visit('https://shop.demoqa.com/my-account/')
-    }
-
     get registerColumn() {
         return cy.get('.u-column2')
     }

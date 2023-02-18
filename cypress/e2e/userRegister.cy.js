@@ -7,7 +7,8 @@ import myAccount from "../../pageObjects/myAccount"
 
 describe('New user register test', () => {
     beforeEach(() => {
-        register.registerPage()
+        myAccount.myAccountPage()
+        register.registerColumn.should('be.visible').contains('Register')
     })
 
     it('Register - empty email field', () => {
