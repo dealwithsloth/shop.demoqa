@@ -1,2 +1,2 @@
 # shop.demoqa
-shop.demoqa cypress automated tests
+shop.demoqa at woocommerce cypress automated tests
