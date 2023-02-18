@@ -22,6 +22,10 @@
 //
 //
 // -- This will overwrite an existing command --
+
+import login from "../../pageObjects/login"
+import userTestData from "../fixtures/userTestData.json"
+
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 Cypress.Commands.overwrite('type', (originalFn, element, text, options) => {
     if (options && options.sensitive) {
@@ -33,4 +37,16 @@ Cypress.Commands.overwrite('type', (originalFn, element, text, options) => {
         })
     }
     return originalFn(element, text, options)
+})
+
+Cypress.Commands.add('login', () => {
+    cy.session('loginSession', () => {
+        cy.visit('/my-account/')
+        login.usernameInputField.should('be.visible')
+        login.usernameInputField.clear().type(userTestData.userCorrect.mailAddress)
+        login.passwordInputField.should('be.visible')
+        login.passwordInputField.type(userTestData.userCorrect.password)
+        login.loginButton.should('exist')
+        login.loginButton.click()
+    })
 })
