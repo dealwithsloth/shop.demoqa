@@ -1,5 +1,13 @@
 {
   "devDependencies": {
-    "cypress": "^12.6.0"
+    "cypress": "^12.6.0",
+    "cypress-xpath": "^2.0.1"
+  },
+  "scripts": {
+    "test": "cypress open",
+    "all": "cypress run -- headless"
+  },
+  "dependencies": {
+    "cypress-plugin-xhr-toggle": "^1.0.0"
   }
 }
