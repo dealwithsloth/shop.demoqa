@@ -1,8 +1,8 @@
 /// <reference types="cypress" />
 import register from "../../pageObjects/register"
-import userTestData from "../../fixtures/userTestData.json"
-import { generateRandomEmailAddress } from "../utility/stringGenerator"
-import { generateRandomUsername } from "../utility/stringGenerator"
+import userTestData from "../fixtures/userTestData.json"
+import { generateRandomEmailAddress } from "../../utility/stringGenerator"
+import { generateRandomUsername } from "../../utility/stringGenerator"
 import myAccount from "../../pageObjects/myAccount"
 
 describe('New user register test', () => {
