@@ -6,12 +6,12 @@
       "lastName": "Test",
       "phoneNumber": "123123123",
       "companyName": "AutomaticCompany",
-      "addressFirstLine": "FirstLineOfAddress",
+      "addressFirstLine": "5000 Shelbyville Rd",
       "addressSecondLine": "SecondLineOfAddress",
-      "city": "TestedCityName",
-      "postCode": "123456",
-      "country": "Poland",
-      "region": "Malopolskie"
+      "city": "Louisville",
+      "postCode": "40207",
+      "country": "United States (US)",
+      "region": "Kentucky"
     },
     "userIncorrect": {
       "mailAddress": "incorrect@incorrect.com",
