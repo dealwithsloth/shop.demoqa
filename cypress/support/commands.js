@@ -45,7 +45,7 @@ Cypress.Commands.add('login', () => {
         login.usernameInputField.should('be.visible')
         login.usernameInputField.clear().type(userTestData.userCorrect.mailAddress)
         login.passwordInputField.should('be.visible')
-        login.passwordInputField.type(userTestData.userCorrect.password)
+        login.passwordInputField.type(userTestData.userCorrect.password, { sensitive: true })
         login.loginButton.should('exist')
         login.loginButton.click()
     })
