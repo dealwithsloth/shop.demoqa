@@ -67,7 +67,7 @@ class Cart {
     get discountCodeBlock() {
         return cy.get('.noocart-coupon')
     }
-    
+
     get discountCodeInputField() {
         return cy.get('#noo_coupon_code')
     }
@@ -75,6 +75,13 @@ class Cart {
     get discountCodeApplyButton() {
         return cy.get('.noo-apply-coupon')
     }
-    
+
+    get continueShoppingButton() {
+        return cy.get('.continue')
+    }
+
+    get proceedToCheckoutButton() {
+        return cy.get('.wc-proceed-to-checkout > .checkout-button')
+    }
 }
 export default new Cart()

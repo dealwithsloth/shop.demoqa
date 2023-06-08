@@ -31,6 +31,5 @@ class ProductPage {
     get viewCartButton() {
         return cy.get('.wc-forward')
     }
-
 }
 export default new ProductPage()
