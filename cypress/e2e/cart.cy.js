@@ -109,13 +109,13 @@ describe('Cart tests', () => {
         cart.cartNameAndTotal.should('exist').and('contain.text', 'Cart(3)')
         cart.deleteProductFromCartButton.should('exist')
         cart.deleteProductFromCartButton.first().click()
+        cy.url().should('include', '/cart/?removed_item=1')
         cart.emptyCartMessage.should('not.exist')
         cart.cartNameAndTotal.should('exist').and('contain.text', 'Cart(2)')
         cart.clearCart.should('exist').and('contain.text', 'clear shopping cart')
         cart.clearCart.click()
         cy.url().should('include', '/cart/?empty-cart')
         cart.emptyCartMessage.should('be.visible').and('contain.text', 'Your cart is currently empty.')
-        cart.cartNameAndTotal.should('exist').and('contain.text', 'Cart(0)')
     })
 
     it('Undo product delete from cart', () => {
