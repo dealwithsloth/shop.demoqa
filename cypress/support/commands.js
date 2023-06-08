@@ -25,6 +25,8 @@
 
 import login from "../../pageObjects/login"
 import userTestData from "../fixtures/userTestData.json"
+import cart from "../../pageObjects/cart" 
+import productPage from "../../pageObjects/productPage"
 
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 Cypress.Commands.overwrite('type', (originalFn, element, text, options) => {
@@ -49,4 +51,17 @@ Cypress.Commands.add('login', () => {
         login.loginButton.should('exist')
         login.loginButton.click()
     })
+})
+
+Cypress.Commands.add('addToCart', () => {
+    productPage.productPageLink()
+        cy.url().should('include', '/product/black-lux-graphic-t-shirt/')
+        cart.pageTitle.should('be.visible').and('contain.text', 't-shirt')
+        productPage.pageBreadCrumbs.should('exist').and('contain.text', 't-shirt')
+        productPage.productColorSelect.should('exist')
+        productPage.productColorSelect.select(1)
+        productPage.productSizeSelect.should('exist')
+        productPage.productSizeSelect.select(1)
+        productPage.addToCartButton.should('exist').and('contain.text', 'Add to cart')
+        productPage.addToCartButton.click()
 })
