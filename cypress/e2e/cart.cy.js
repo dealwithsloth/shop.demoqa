@@ -3,7 +3,7 @@ import productPage from "../../pageObjects/productPage"
 import login from "../../pageObjects/login"
 import register from "../../pageObjects/register"
 
-describe('Cart', () => {
+describe('Cart tests', () => {
     beforeEach(() => {
         cart.cartPageLink()
         cy.url().should('include', '/cart/')
@@ -113,6 +113,7 @@ describe('Cart', () => {
         cart.cartNameAndTotal.should('exist').and('contain.text', 'Cart(2)')
         cart.clearCart.should('exist').and('contain.text', 'clear shopping cart')
         cart.clearCart.click()
+        cy.url().should('include', '/cart/?empty-cart')
         cart.emptyCartMessage.should('be.visible').and('contain.text', 'Your cart is currently empty.')
         cart.cartNameAndTotal.should('exist').and('contain.text', 'Cart(0)')
     })
@@ -146,5 +147,27 @@ describe('Cart', () => {
         cart.discountCodeApplyButton.should('exist').and('contain.text', 'Apply Coupon')
         cart.discountCodeApplyButton.click()
         register.errorMessage.should('exist').and('contain.text', 'does not exist!')
+    })
+
+    it('Continue Shopping', () => {
+        cy.addToCart()
+        cart.cartPageLink()
+        cy.url().should('include', '/cart/')
+        cart.quantityInputField.should('exist').and('contain.value', '1')
+        cart.continueShoppingButton.should('exist')
+        cart.continueShoppingButton.click()
+        cy.url().should('include', '/shop/')
+        productPage.pageBreadCrumbs.should('exist').and('contain.text', 'Shop')
+    })
+
+    it('Proceed to checkout', () => {
+        cy.addToCart()
+        cart.cartPageLink()
+        cy.url().should('include', '/cart/')
+        cart.quantityInputField.should('exist').and('contain.value', '1')
+        cart.proceedToCheckoutButton.should('exist')
+        cart.proceedToCheckoutButton.click()
+        cy.url().should('include', '/checkout/')
+        productPage.pageBreadCrumbs.should('exist').and('contain.text', 'Checkout')
     })
 })
