@@ -21,7 +21,7 @@ describe('New user register test', () => {
 
     it('Register - empty username field', () => {
         register.emailAddressInputField.should('be.visible')
-        register.emailAddressInputField.clear().type(userTestData.userCorrect.mailAddress)
+        register.emailAddressInputField.clear().type(generateRandomEmailAddress())
         register.registerButton.should('be.visible')
         register.registerButton.click()
         register.errorMessage.should('exist').contains('Error: Please enter a valid account username.')
@@ -29,9 +29,9 @@ describe('New user register test', () => {
 
     it('Register - empty password field', () => {
         register.usernameInputField.should('be.visible')
-        register.usernameInputField.clear().type(userTestData.userCorrect.firstName)
+        register.usernameInputField.clear().type(generateRandomUsername())
         register.emailAddressInputField.should('be.visible')
-        register.emailAddressInputField.clear().type(userTestData.userCorrect.mailAddress)
+        register.emailAddressInputField.clear().type(generateRandomEmailAddress())
         register.registerButton.should('be.visible')
         register.registerButton.click()
         register.errorMessage.should('exist').contains('Error: Please enter an account password.')
