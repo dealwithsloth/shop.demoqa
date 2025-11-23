@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "cypress": "^12.6.0",
+    "cypress": "^14.5.4",
     "cypress-xpath": "^2.0.1"
   },
   "scripts": {
